@@ -1,8 +1,13 @@
+library(stat297)
+
 find_pi = function(B=5000, seed=10, make_plot=TRUE){
   set.seed(seed)
   cols = c('#F8766D33', '#00BFC433')
   if (make_plot==TRUE){
     plot(NA, xlim = c(-1.1,1.1), ylim = c(-1.1,1.1), xlab = "x", ylab = "y", asp=1)
+    cols = hcl(h = seq(15, 375, length = 3), l = 65, c = 100, alpha = 0.2)[1:2]
+    points(0.8, 0.9, pch = 16, col = cols[1])
+    points(0, 0, pch = 16, col = cols[2])
     make_square()
     grid()
     make_circle()
@@ -24,3 +29,4 @@ find_pi = function(B=5000, seed=10, make_plot=TRUE){
   hat_pi = 4*sum(bools)/B
   return(hat_pi)
 }
+
